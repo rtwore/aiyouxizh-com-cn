@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rtwore.github.io/aiyouxizh-com-cn/sitemap.xml
