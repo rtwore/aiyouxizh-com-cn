@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极速赛车 – 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f6f0;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 780px;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border-radius: 32px;
+            padding: 2.5rem 2.2rem;
+            margin: 1.5rem 0;
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: left;
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e8e2d6;
+            padding-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1f1c17;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5b554a;
+            max-width: 600px;
+            margin-top: 0.5rem;
+        }
+
+        .hero .meta-line {
+            font-size: 0.9rem;
+            color: #8a8378;
+            margin-top: 1rem;
+        }
+
+        /* 优势区块 */
+        .advantages {
+            margin: 2.5rem 0;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #9c9486;
+            margin-bottom: 1.25rem;
+            border-left: 3px solid #d4c9b8;
+            padding-left: 0.75rem;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 1.5rem;
+        }
+
+        .advantage-item {
+            background: #fcfaf7;
+            padding: 1.2rem 1rem 1rem 1.2rem;
+            border-radius: 18px;
+            transition: background 0.15s;
+        }
+
+        .advantage-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #2b2721;
+        }
+
+        .advantage-item p {
+            font-size: 0.95rem;
+            color: #5f5950;
+        }
+
+        /* 说明区 */
+        .explain-block {
+            background: #f7f3ec;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .explain-block::before {
+            content: "📌";
+            position: absolute;
+            top: -0.7rem;
+            left: 1.2rem;
+            font-size: 1.6rem;
+        }
+
+        .explain-block h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            margin-bottom: 0.8rem;
+            color: #2b2721;
+        }
+
+        .explain-block p {
+            margin-bottom: 0.9rem;
+        }
+
+        .explain-block .highlight-link {
+            font-weight: 500;
+            color: #3a3228;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cdbfac;
+        }
+
+        .explain-block .highlight-link:hover {
+            background-color: #eae1d4;
+            text-decoration: none;
+            border-radius: 4px;
+            padding: 0 4px;
+        }
+
+        /* 引用块 / 提示框 */
+        .quote-tip {
+            background: #fffcf7;
+            border-left: 6px solid #b7ab99;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            border-radius: 0 20px 20px 0;
+            color: #3e3932;
+            font-style: normal;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .quote-tip strong {
+            font-weight: 500;
+            color: #1f1c17;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.8rem 0 1.8rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 1.2rem;
+            color: #2d2a24;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #ede7dd;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .faq-q::before {
+            content: "Q.";
+            color: #a09789;
+            font-weight: 400;
+            margin-right: 0.2rem;
+        }
+
+        .faq-a {
+            margin-top: 0.3rem;
+            padding-left: 1.5rem;
+            color: #555048;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #3f372d;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #c9bcab;
+        }
+
+        .faq-a a:hover {
+            background: #ede5d9;
+            text-decoration: none;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2dbd0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem 1.5rem;
+            font-size: 0.95rem;
+            color: #6f685e;
+        }
+
+        .footer-links a {
+            color: #4b443b;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #b0a390;
+        }
+
+        .footer-links .current-page {
+            font-weight: 450;
+            color: #1f1c17;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .page-wrapper {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .advantage-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .explain-block {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .quote-tip {
+                padding: 1rem 1.2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            body {
+                padding: 1rem 0.6rem;
+            }
+
+            .page-wrapper {
+                border-radius: 24px;
+                padding: 1.4rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>稳定入口·页面说明</h1>
+        <p>对于习惯流畅浏览的人来说，一个简洁、可靠的起点往往比喧闹的入口更有价值。这里没有多余的跳转，只有对 <a href="https://index-racing.com" style="color: #2d2a24; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #cdbfac; font-weight: 500;">极速赛车</a> 这一核心方向所做的平实介绍。</p>
+        <div class="meta-line">—— 从页面结构到内容节奏，保持稳定与透明</div>
+    </div>
+
+    <!-- 优势区 -->
+    <div class="advantages">
+        <div class="section-label">几个基础优势</div>
+        <div class="advantage-grid">
+            <div class="advantage-item">
+                <h3>直接访问</h3>
+                <p>页面路径清晰，无需层层跳转，打开即可浏览与赛车资讯相关的内容结构。</p>
+            </div>
+            <div class="advantage-item">
+                <h3>信息呈现</h3>
+                <p>以文章式排版为主，减少视觉干扰，把注意力留给文字与内容本身。</p>
+            </div>
+            <div class="advantage-item">
+                <h3>阅读友好</h3>
+                <p>米白背景搭配适中行距，字号与间距针对长时间阅读做了细微调整。</p>
+            </div>
+            <div class="advantage-item">
+                <h3>克制更新</h3>
+                <p>不堆砌浮夸修饰，只提供经过整理的展示段落，降低信息过载的可能。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区（含引用提示） -->
+    <div class="explain-block">
+        <h2>关于页面方向的说明</h2>
+        <p>这一页更接近一个“索引说明”而非营销落地页。我们尝试从稳定入口和页面说明的角度展开：<strong>极速赛车</strong> 这个关键词在这里并不代表夸张的速度承诺，而是指向一个持续可用的浏览起点。</p>
+        <p>如果你希望了解赛道资讯、车辆参数或相关动态，可以从 <a href="https://index-racing.com" class="highlight-link">极速赛车</a> 这个链接进入，页面本身不提供直接竞速服务，而是作为信息索引存在。</p>
+    </div>
+
+    <!-- 引用块 / 提示框 -->
+    <div class="quote-tip">
+        <strong>一点提示：</strong> 网站内容会随着时间调整，建议定期回到此页查看结构是否有更新。这里不会突然出现弹窗或诱导按钮，所有的链接都带有明确的上下文。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见问题摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个页面是赛车游戏入口吗？</div>
+            <div class="faq-a">不是。它主要对 <a href="https://index-racing.com">极速赛车</a> 这一关键词做信息说明与结构展示，不包含任何游戏客户端或模拟器。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何快速找到最新内容？</div>
+            <div class="faq-a">直接使用页面上方的链接，或通过书签保存 <a href="https://index-racing.com">极速赛车</a> 作为固定入口。页面本身会保持稳定的版式。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">移动端阅读体验如何？</div>
+            <div class="faq-a">已做响应式适配，在手机和窄屏幕上会自动调整间距与卡片布局，保留流畅的阅读流。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <span class="current-page">← 当前页面 · 介绍</span>
+        <a href="https://index-racing.com">极速赛车</a>
+        <span style="color: #b3aba0;">·</span>
+        <a href="#">页面结构说明</a>
+        <a href="#">内容归档</a>
+        <span style="font-size: 0.85rem; color: #a69e92;">© 2025 · 稳定入口</span>
+    </div>
+</div>
+</body>
+</html>
